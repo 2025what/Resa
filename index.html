@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>En historisk resa</title>
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark-blue: #1a2a3a;
+            --cream: #fdfaf5;
+            --text: #333;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: var(--dark-blue);
+            font-family: 'Georgia', serif;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('image_0.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #presentation-container {
+            background-color: rgba(253, 250, 245, 0.94);
+            width: 92%;
+            max-width: 500px;
+            min-height: 520px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid var(--gold);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .progress {
+            font-size: 0.85rem;
+            color: #888;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .slide {
+            display: none;
+            flex-grow: 1;
+            padding: 20px 0;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 18px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            touch-action: manipulation;
+        }
+
+        #nextBtn {
+            background-color: var(--dark-blue);
+            color: white;
+            border: 1px solid var(--gold);
+        }
+
+        #prevBtn {
+            background-color: transparent;
+            color: #777;
+            font-size: 0.9rem;
+            padding: 5px;
+        }
+
+        .hint-toggle {
+            background: none;
+            color: var(--gold);
+            text-decoration: underline;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .hint-text {
+            display: none;
+            font-size: 0.9rem;
+            color: #444;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 5px;
+            font-style: normal;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .reveal {
+            font-size: 2.2rem !important;
+            font-weight: bold;
+            font-style: normal !important;
+            color: var(--dark-blue);
+        }
+    </style>
+</head>
+<body>
+
+<div id="presentation-container">
+    <div class="header">
+        <span class="progress" id="progress">Ledtråd 1 av 5</span>
+    </div>
+
+    <div class="slide active">
+        <h2>Ledtråd 1: Landskapet</h2>
+        <p>"Vi ska resa genom ett landskap som bär namnet av folkets södra del. Vi rör oss mot en plats som förvandlades från helgonets viloplats till rikets smedja."</p>
+        <button class="hint-toggle" onclick="toggleHint(0)">Visa förklaring</button>
+        <div class="hint-text">Södermanland och Eskilstunas resa från biskopssäte till industriort.</div>
+    </div>
+
+    <div class="slide">
+        <h2>Ledtråd 2: Slottet</h2>
+        <p>"Vårt första stopp är en herrgård i empirstil, där det är en 'kunglig' aptit på det söta som lockar mest. Här möts Mälaren och ett överflöd som får sockerbagare att rodna."</p>
+        <button class="hint-toggle" onclick="toggleHint(1)">Visa förklaring</button>
+        <div class="hint-text">Taxinge Slott - det berömda "Kakslottet".</div>
+    </div>
+
+    <div class="slide">
+        <h2>Ledtråd 3: Legenden</h2>
+        <p>"Vi rör oss nu mot den plats där en anglosaxisk biskop lät resa sitt altare invid Fors. Han tystade asatrons sista offer i grannstaden, men det var här han fick sin vila efter att hästarna vägrat gå längre."</p>
+        <button class="hint-toggle" onclick="toggleHint(2)">Visa förklaring</button>
+        <div class="hint-text">Sankt Eskil stenades i Strängnäs, men begravdes i Fors (Eskilstuna) där hästarna enligt legenden stannade vid en källa.</div>
+    </div>
+
+    <div class="slide">
+        <h2>Ledtråd 4: Smedjan</h2>
+        <p>"Målet är en stad som förr kallades 'Den svarta staden', men som är byggd av stål. Här lät Karl X Gustaf en livländare smida knivar, saxar och lås åt stormakten."</p>
+        <button class="hint-toggle" onclick="toggleHint(3)">Visa förklaring</button>
+        <div class="hint-text">Rademachersmedjorna i Eskilstuna, grundade av Reinhold Rademacher.</div>
+    </div>
+
+    <div class="slide">
+        <h2>Ledtråd 5: Forntiden</h2>
+        <p>"Vi åker till staden där traktorns fader satte hjulen i rullning och där en drake blev huggen i sten vid en närbelägen bro."</p>
+        <button class="hint-toggle" onclick="toggleHint(4)">Visa förklaring</button>
+        <div class="hint-text">Johan Theofron Munktell (Munktellmuseet) och den berömda Sigurdsristningen.</div>
+    </div>
+
+    <div class="slide">
+        <h2>ÖVERRASKNING!</h2>
+        <p class="reveal">Vi ska till Eskilstuna!</p>
+        <p style="font-size: 3rem; margin: 0;">🚗💨</p>
+    </div>
+
+    <div class="controls">
+        <button id="nextBtn" onclick="changeSlide(1)">Nästa ledtråd</button>
+        <button id="prevBtn" onclick="changeSlide(-1)">Gå tillbaka</button>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const hints = document.querySelectorAll('.hint-text');
+    const progressText = document.getElementById('progress');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    function updateUI() {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+        hints.forEach(h => h.style.display = 'none');
+        prevBtn.style.visibility = currentSlide === 0 ? 'hidden' : 'visible';
+        
+        if (currentSlide === slides.length - 1) {
+            nextBtn.style.display = 'none';
+            progressText.innerText = "Framme!";
+        } else {
+            nextBtn.style.display = 'block';
+            nextBtn.innerText = currentSlide === slides.length - 2 ? "AVSLÖJA MÅLET" : "Nästa ledtråd";
+            progressText.innerText = `Ledtråd ${currentSlide + 1} av ${slides.length - 1}`;
+        }
+    }
+
+    function changeSlide(direction) {
+        currentSlide += direction;
+        updateUI();
+    }
+
+    function toggleHint(index) {
+        const hint = hints[index];
+        hint.style.display = hint.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
