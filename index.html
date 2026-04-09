@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>En historisk resa</title>
+    <title>På Spåret: Resan</title>
     <style>
         :root {
             --gold: #c5a059;
@@ -33,31 +33,35 @@
         }
 
         #presentation-container {
-            background-color: rgba(253, 250, 245, 0.94);
+            background-color: rgba(253, 250, 245, 0.95);
             width: 92%;
             max-width: 500px;
-            min-height: 520px;
+            min-height: 550px;
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 2px solid var(--gold);
+            border: 3px solid var(--dark-blue);
             box-sizing: border-box;
             position: relative;
         }
 
         .header {
             text-align: center;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
         }
 
-        .progress {
-            font-size: 0.85rem;
-            color: #888;
-            letter-spacing: 1px;
+        .score-tag {
+            background-color: var(--dark-blue);
+            color: var(--gold);
+            padding: 5px 15px;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 20px;
             margin-bottom: 10px;
-            display: block;
         }
 
         .slide {
@@ -75,15 +79,8 @@
             text-align: center;
         }
 
-        h2 {
-            color: var(--gold);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
         p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             margin-bottom: 20px;
             font-style: italic;
@@ -98,7 +95,7 @@
         }
 
         button {
-            padding: 18px;
+            padding: 16px;
             font-size: 1.1rem;
             font-weight: bold;
             border-radius: 8px;
@@ -118,27 +115,17 @@
             background-color: transparent;
             color: #777;
             font-size: 0.9rem;
-            padding: 5px;
-        }
-
-        .hint-toggle {
-            background: none;
-            color: var(--gold);
-            text-decoration: underline;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
         }
 
         .hint-text {
             display: none;
             font-size: 0.9rem;
             color: #444;
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(197, 160, 89, 0.2);
             padding: 15px;
             border-radius: 6px;
             margin-top: 5px;
             font-style: normal;
-            line-height: 1.4;
         }
 
         @keyframes fadeIn {
@@ -147,7 +134,7 @@
         }
 
         .reveal {
-            font-size: 2.2rem !important;
+            font-size: 2rem !important;
             font-weight: bold;
             font-style: normal !important;
             color: var(--dark-blue);
@@ -158,89 +145,68 @@
 
 <div id="presentation-container">
     <div class="header">
-        <span class="progress" id="progress">Ledtråd 1 av 5</span>
+        <div id="scoreDisplay" class="score-tag">10 POÄNG</div>
     </div>
 
     <div class="slide active">
-        <h2>Ledtråd 1: Landskapet</h2>
-        <p>"Vi ska resa genom ett landskap som bär namnet av folkets södra del. Vi rör oss mot en plats som förvandlades från helgonets viloplats till rikets smedja."</p>
-        <button class="hint-toggle" onclick="toggleHint(0)">Visa förklaring</button>
-        <div class="hint-text">Södermanland och Eskilstunas resa från biskopssäte till industriort.</div>
+        <p>"Vi lämnar pappersbrukens dofter på Södertörn och stävar västerut mot en ort som härdats i ässjan. På vägen gör vi en kunglig avstickare till ett herresäte där kakfaten aldrig sinar."</p>
     </div>
 
     <div class="slide">
-        <h2>Ledtråd 2: Slottet</h2>
-        <p>"Vårt första stopp är en herrgård i empirstil, där det är en 'kunglig' aptit på det söta som lockar mest. Här möts Mälaren och ett överflöd som får sockerbagare att rodna."</p>
-        <button class="hint-toggle" onclick="toggleHint(1)">Visa förklaring</button>
-        <div class="hint-text">Taxinge Slott - det berömda "Kakslottet".</div>
+        <p>"I vår destination föddes 'Kneten', en av de största profilerna från den magiska sommaren -94. Han nådde högre än de flesta när hela Sverige grävde guld i USA."</p>
     </div>
 
     <div class="slide">
-        <h2>Ledtråd 3: Legenden</h2>
-        <p>"Vi rör oss nu mot den plats där en anglosaxisk biskop lät resa sitt altare invid Fors. Han tystade asatrons sista offer i grannstaden, men det var här han fick sin vila efter att hästarna vägrat gå längre."</p>
-        <button class="hint-toggle" onclick="toggleHint(2)">Visa förklaring</button>
-        <div class="hint-text">Sankt Eskil stenades i Strängnäs, men begravdes i Fors (Eskilstuna) där hästarna enligt legenden stannade vid en källa.</div>
+        <p>"Befolkningsmässigt väger staden lika tungt som hemvisten för Green Bay Packers i Wisconsin, USA. Vi söker en stad med cirka ******** invånare."</p>
     </div>
 
     <div class="slide">
-        <h2>Ledtråd 4: Smidets</h2>
-        <p>"Målet är en stad som förr kallades 'Den svarta staden', men som är byggd av stål. Här lät Karl X Gustaf en livländare smida knivar, saxar och lås åt stormakten."</p>
-        <button class="hint-toggle" onclick="toggleHint(3)">Visa förklaring</button>
-        <div class="hint-text">Rademachersmedjorna i Eskilstuna, grundade av Reinhold Rademacher.</div>
+        <p>"Vi närmar oss den anglosaxiska biskopens sista vila. Han som tystade asatrons sista offer i grannstaden men fann ro här invid Fors efter att hästarna vägrat gå längre."</p>
     </div>
 
     <div class="slide">
-        <h2>Ledtråd 5: Forntiden</h2>
-        <p>"Vi åker till staden där traktorns fader satte hjulen i rullning och där en drake blev huggen i sten vid en närbelägen bro."</p>
-        <button class="hint-toggle" onclick="toggleHint(4)">Visa förklaring</button>
-        <div class="hint-text">Johan Theofron Munktell (Munktellmuseet) och den berömda Sigurdsristningen.</div>
+        <p>"Vi är nu framme i staden där Munktell satte hjulen i rullning och Rademacher lät hammarslagen ljuda. Välkomna till Södermanlands stålstolthet!"</p>
     </div>
 
     <div class="slide">
-        <h2>ÖVERRASKNING!</h2>
-        <p class="reveal">Vi ska till Eskilstuna!</p>
-        <p style="font-size: 3rem; margin: 0;">🚗💨</p>
+        <h2 style="color:var(--gold)">VART VAR VI PÅ VÄG?</h2>
+        <p class="reveal">ESKILSTUNA!</p>
+        <p style="font-size: 3rem; margin: 0;">🚂 💨</p>
     </div>
 
     <div class="controls">
-        <button id="nextBtn" onclick="changeSlide(1)">Nästa ledtråd</button>
-        <button id="prevBtn" onclick="changeSlide(-1)">Gå tillbaka</button>
+        <button id="nextBtn" onclick="changeSlide(1)">NÄSTA LEDTRÅD</button>
+        <button id="prevBtn" onclick="changeSlide(-1)">Föregående</button>
     </div>
 </div>
 
 <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    const hints = document.querySelectorAll('.hint-text');
-    const progressText = document.getElementById('progress');
+    const scoreDisplay = document.getElementById('scoreDisplay');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
+    const scores = ["10 POÄNG", "8 POÄNG", "6 POÄNG", "4 POÄNG", "2 POÄNG", "FRAMME!"];
 
     function updateUI() {
         slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === currentSlide);
         });
-        hints.forEach(h => h.style.display = 'none');
+        
+        scoreDisplay.innerText = scores[currentSlide];
         prevBtn.style.visibility = currentSlide === 0 ? 'hidden' : 'visible';
         
         if (currentSlide === slides.length - 1) {
             nextBtn.style.display = 'none';
-            progressText.innerText = "Framme!";
         } else {
             nextBtn.style.display = 'block';
-            nextBtn.innerText = currentSlide === slides.length - 2 ? "AVSLÖJA MÅLET" : "Nästa ledtråd";
-            progressText.innerText = `Ledtråd ${currentSlide + 1} av ${slides.length - 1}`;
+            nextBtn.innerText = currentSlide === slides.length - 2 ? "VART ÄR VI PÅ VÄG?" : "NÄSTA LEDTRÅD";
         }
     }
 
     function changeSlide(direction) {
         currentSlide += direction;
         updateUI();
-    }
-
-    function toggleHint(index) {
-        const hint = hints[index];
-        hint.style.display = hint.style.display === 'block' ? 'none' : 'block';
     }
 </script>
 
