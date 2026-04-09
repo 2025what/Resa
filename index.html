@@ -26,6 +26,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            /* Bakgrundsbild för hela sidan */
             background-image: url('image_0.png'); 
             background-size: cover;
             background-position: center;
@@ -88,6 +89,17 @@
             color: var(--text);
         }
 
+        /* --- NYTT: Stil för sista stadsbilden --- */
+        #finalCityImage {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            margin-top: 15px;
+            display: block;
+            border: 2px solid var(--gold);
+        }
+
         .controls {
             display: flex;
             flex-direction: column;
@@ -128,7 +140,7 @@
             font-weight: bold;
             font-style: normal !important;
             color: var(--dark-blue);
-            margin: 20px 0;
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -179,51 +191,6 @@
         <p>"Nu ser vi ån som binder samman Hjälmaren med Mälaren. Vi är inne i centrum av den stad som bär helgonets namn."</p>
     </div>
 
-    <div class="slide">
+    <div id="finalSlide" class="slide">
         <h2 style="color:var(--gold)">VART VAR VI PÅ VÄG?</h2>
         <p class="reveal">ESKILSTUNA!</p>
-        <p style="font-size: 3rem; margin: 0;">🚂 🚗 💨</p>
-    </div>
-
-    <div class="controls">
-        <button id="nextBtn" onclick="changeSlide(1)">NÄSTA LEDTRÅD</button>
-        <button id="prevBtn" onclick="changeSlide(-1)">Föregående</button>
-    </div>
-</div>
-
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const scoreDisplay = document.getElementById('scoreDisplay');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    
-    const scores = [
-        "10 POÄNG", "9 POÄNG", "8 POÄNG", "7 POÄNG", "6 POÄNG", 
-        "5 POÄNG", "4 POÄNG", "3 POÄNG", "2 POÄNG", "1 POÄNG", "FRAMME!"
-    ];
-
-    function updateUI() {
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === currentSlide);
-        });
-        
-        scoreDisplay.innerText = scores[currentSlide];
-        prevBtn.style.visibility = currentSlide === 0 ? 'hidden' : 'visible';
-        
-        if (currentSlide === slides.length - 1) {
-            nextBtn.style.display = 'none';
-        } else {
-            nextBtn.style.display = 'block';
-            nextBtn.innerText = currentSlide === slides.length - 2 ? "VART ÄR VI PÅ VÄG?" : "NÄSTA LEDTRÅD";
-        }
-    }
-
-    function changeSlide(direction) {
-        currentSlide += direction;
-        updateUI();
-    }
-</script>
-
-</body>
-</html>
